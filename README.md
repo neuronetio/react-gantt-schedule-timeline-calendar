@@ -19,7 +19,7 @@ Documentation can be found on original component page at [gantt-schedule-timelin
 ## usage
 
 ```javascript
-import React from "react";
+import React, { useEffect } from "react";
 import GSTC from "./react-gantt-schedule-timeline-calendar";
 
 function App() {
@@ -148,6 +148,8 @@ function App() {
     </div>
   );
 }
+
+export default App;
 ```
 
 ## license

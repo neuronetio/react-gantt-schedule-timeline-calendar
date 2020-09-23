@@ -1,23 +1,23 @@
 {
   "name": "react-gantt-schedule-timeline-calendar",
-  "version": "1.1.40",
-  "license": "AGPL-3.0",
-  "main": "dist/GSTC.js",
+  "version": "3.0.36",
+  "private": false,
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "src/components/GSTC.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "gantt-schedule-timeline-calendar": "^2.6.8",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "gantt-schedule-timeline-calendar": "^3.0.38",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:component": "rm -rf dist && mkdir dist &&  babel src/components -d dist --copy-files"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,33 +32,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "description": "React version of gantt-schedule-timeline-calendar [ react gantt, react schedule, react timeline, react calendar, react schedule timeline, react gantt schedule ]",
-  "keywords": [
-    "react",
-    "gantt",
-    "react gantt",
-    "schedule",
-    "react schedule",
-    "react scheduler",
-    "scheduler",
-    "react timeline",
-    "timeline",
-    "react calendar",
-    "calendar",
-    "react project manager",
-    "project manager",
-    "react tasks",
-    "tasks"
-  ],
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/preset-react": "^7.8.3"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
     ]
   }
 }

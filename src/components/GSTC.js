@@ -1,33 +1,37 @@
-import React, { useCallback, useEffect } from "react";
-import GSTC from "gantt-schedule-timeline-calendar";
-import "gantt-schedule-timeline-calendar/dist/style.css";
+import React, { useCallback, useEffect, useRef } from 'react';
+import GSTC from 'gantt-schedule-timeline-calendar';
+import 'gantt-schedule-timeline-calendar/dist/style.css';
 
-let gstc;
-export default function GSTCWrapper(props) {
-  // @ts-ignore
-  let state = GSTC.api.stateFromConfig(props.config);
-  props.onState(state);
+export { GSTC };
+export default function GSTCWrapper({ config, onLoad }) {
+  let gstc = useRef(null);
+  let mounted = useRef(false);
 
   const callback = useCallback(
-    node => {
-      if (node) {
-        // @ts-ignore
-        gstc = GSTC({
-          element: node,
-          state
+    (node) => {
+      if (node && !mounted.current) {
+        node.addEventListener('gstc-loaded', () => {
+          onLoad(gstc.current);
         });
+        gstc.current = GSTC({
+          element: node,
+          state: config.current
+            ? GSTC.api.stateFromConfig(config.current)
+            : GSTC.api.stateFromConfig(config),
+        });
+        mounted.current = true;
       }
     },
-    [state]
+    [config, onLoad]
   );
 
   useEffect(() => {
     return () => {
-      if (gstc) {
-        gstc.app.destroy();
+      if (gstc.current) {
+        gstc.current.app.destroy();
       }
     };
   });
 
-  return <div ref={callback} />;
+  return <div className="gstc-wrapper" ref={callback} />;
 }

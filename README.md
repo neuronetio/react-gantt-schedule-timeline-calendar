@@ -1,155 +1,20 @@
-<p align="center">
-  <img src="https://neuronet.io/screenshots/gstc9-flat-bgw-300.png" alt="logo">
-</p>
-<hr />
-<h1 align="center">react-gantt-schedule-timeline-calendar</h1>
-
-React version of [gantt-schedule-timeline-calendar](https://github.com/neuronetio/gantt-schedule-timeline-calendar)
-
-Documentation can be found on original component page at [gantt-schedule-timeline-calendar](https://github.com/neuronetio/gantt-schedule-timeline-calendar)
+<h1 align="center">REACT WRAPPER FOR <a href="https://github.com/neuronetio/gantt-schedule-timeline-calendar">gantt-schedule-timeline-calendar</a></h1>
 
 <p align="center">
-  <img src="https://neuronet.io/screenshots/appscrn.png?uniq=1" alt="gstc-logo">
+  <img src="https://neuronet.io/screenshots/mainapp.jpg" alt="gantt-schedule-timeline-calendar">
 </p>
 
-## installation
+<h2 align="center">Example usage</h2>
 
-`npm i react-gantt-schedule-timeline-calendar`
+Take a look at `src/App.js`
 
-## usage
+You can also clone this repo and type `npm i` and then `npm start`
 
-```javascript
-import React from "react";
-import GSTC from "./react-gantt-schedule-timeline-calendar";
+<h2 align="center">LICENSE</h2>
 
-function App() {
-  const config = {
-    height: 300,
-    list: {
-      rows: {
-        "1": {
-          id: "1",
-          label: "Row 1"
-        },
-        "2": {
-          id: "2",
-          label: "Row 2"
-        },
-        "3": {
-          id: "3",
-          label: "Row 3"
-        },
-        "4": {
-          id: "4",
-          label: "Row 4"
-        }
-      },
-      columns: {
-        data: {
-          id: {
-            id: "id",
-            data: "id",
-            width: 50,
-            header: {
-              content: "ID"
-            }
-          },
-          label: {
-            id: "label",
-            data: "label",
-            width: 200,
-            header: {
-              content: "Label"
-            }
-          }
-        }
-      }
-    },
-    chart: {
-      items: {
-        "1": {
-          id: "1",
-          rowId: "1",
-          label: "Item 1",
-          time: {
-            start: new Date().getTime(),
-            end: new Date().getTime() + 24 * 60 * 60 * 1000
-          }
-        },
-        "2": {
-          id: "2",
-          rowId: "2",
-          label: "Item 2",
-          time: {
-            start: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
-            end: new Date().getTime() + 5 * 24 * 60 * 60 * 1000
-          }
-        },
-        "3": {
-          id: "3",
-          rowId: "2",
-          label: "Item 3",
-          time: {
-            start: new Date().getTime() + 6 * 24 * 60 * 60 * 1000,
-            end: new Date().getTime() + 7 * 24 * 60 * 60 * 1000
-          }
-        },
-        "4": {
-          id: "4",
-          rowId: "3",
-          label: "Item 4",
-          time: {
-            start: new Date().getTime() + 10 * 24 * 60 * 60 * 1000,
-            end: new Date().getTime() + 12 * 24 * 60 * 60 * 1000
-          }
-        },
-        "5": {
-          id: "5",
-          rowId: "4",
-          label: "Item 5",
-          time: {
-            start: new Date().getTime() + 12 * 24 * 60 * 60 * 1000,
-            end: new Date().getTime() + 14 * 24 * 60 * 60 * 1000
-          }
-        }
-      }
-    }
-  };
+[NEURONET Free License](https://github.com/neuronetio/gantt-schedule-timeline-calendar/blob/master/LICENSE)
 
-  let subs = [];
-
-  function onState(state) {
-    state.update("config.chart.items.1", item1 => {
-      item1.label = "Gantt schedule timeline calendar";
-      item1.time.end = item1.time.end + 2 * 24 * 60 * 60 * 1000;
-      return item1;
-    });
-    subs.push(
-      state.subscribe("config.chart.items", items => {
-        console.log("items changed", items);
-      })
-    );
-    subs.push(
-      state.subscribe("config.list.rows", rows => {
-        console.log("rows changed", rows);
-      })
-    );
-  }
-
-  useEffect(() => {
-    return () => {
-      subs.forEach(unsub => unsub());
-    };
-  });
-
-  return (
-    <div className="App">
-      <GSTC config={config} onState={onState} />
-    </div>
-  );
-}
-```
-
-## license
-
-AGPL-3.0 (for non AGPL-3.0 projects you must buy commercial license - contact me at neuronet.io@gmail.com)
+You can generate [free license key here](https://gstc.neuronet.io/free-key).
+You can use this software for free in non-commercial projects that are under the MIT / ISC license and whose full source code is available on the Internet (backend and frontend).
+In commercial or closed source projects, you can use it for free for two months only.
+If you need a full commercial license with all plugins included, please contact us at neuronet.io@gmail.com

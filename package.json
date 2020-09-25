@@ -1,6 +1,6 @@
 {
   "name": "react-gantt-schedule-timeline-calendar",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "private": false,
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/components/GSTC.js",
